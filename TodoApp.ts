@@ -6,7 +6,7 @@ export class TodoApp {
     private todoService: ITodoService;
     private todoList: TodoListComponent;
 
-    constructor(el, todos) {
+    constructor(el, todos: string[]) {
         this.todoService = new TodoService(todos);
     }
 
@@ -16,7 +16,7 @@ export class TodoApp {
     }
 
     clearCompleted() {
-        this. todoService.clearCompleted();
+        this.todoService.clearCompleted();
         this.renderTodos();
     }
 
@@ -36,20 +36,20 @@ export class TodoApp {
             addTodoNameEl = addTodoFormEl.getElementsByTagName('input')[0],
             todoListEl = el.getElementsByClassName('todo-list')[0],
             clearCompletedEl = el.getElementsByClassName('clear-completed')[0];
-        
-        addTodoFormEl.addEventListener('submit', function(evt) {
+
+        addTodoFormEl.addEventListener('submit', function (evt) {
             _this.addTodo(addTodoNameEl.value);
             addTodoNameEl.value = '';
             evt.preventDefault();
         });
 
-        todoListEl.addEventListener('todo-toggle', function(evt) {
+        todoListEl.addEventListener('todo-toggle', function (evt) {
             let todoId = evt.details.todoId;
             _this.todoService.toggle(todoId);
             _this.renderTodos();
         });
 
-        clearCompletedEl.addEventListener('click', function() {
+        clearCompletedEl.addEventListener('click', function () {
             _this.clearCompleted();
         });
     }

@@ -40,7 +40,7 @@ export default class TodoListComponent {
             '   </div>' +
             '</div>' +
             '</div>');
-        item.addEventListener('click', function() {
+        item.addEventListener('click', function () {
             let event = document.createEvent('CustomEvent');
             event.initCustomEvent('todo-toggle', true, true, { todoId: todo.id });
             this.dispatchEvent(event);
