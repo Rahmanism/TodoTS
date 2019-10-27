@@ -12,6 +12,7 @@ System.register(["./TodoService.js"], function (exports_1, context_1) {
             TodoApp = /** @class */ (function () {
                 function TodoApp(el, todos) {
                     this.todoService = new TodoService_js_1.default(todos);
+                    this.initialize(el);
                 }
                 TodoApp.prototype.addTodo = function (todoName) {
                     this.todoService.add(todoName);
@@ -38,7 +39,7 @@ System.register(["./TodoService.js"], function (exports_1, context_1) {
                         evt.preventDefault();
                     });
                     todoListEl.addEventListener('todo-toggle', function (evt) {
-                        var todoId = evt.details.todoId;
+                        var todoId = evt.detail.todoId;
                         _this.todoService.toggle(todoId);
                         _this.renderTodos();
                     });

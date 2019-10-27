@@ -11,11 +11,50 @@
 </head>
 
 <body>
+    <div class="container">
+        <div class="header clearfix">
+            <h1>TypeScript Todo List</h1>
+        </div>
+        <div class="row">
+            <div class="panel panel-default clearfix">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="todo-list col-md-12">
+                            <!-- TODO items will be rendered here. -->
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <!-- Add Todo -->
+                            <form class="add-todo">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-btn">
+                                            <button type="submit" class="btn btn-primary input-lg">Add</button>
+                                        </span>
+                                        <input type="text" class="form-control input-lg" placeholder="What do you need" />
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- /Add Todo -->
+                        </div>
+                        
+                        <div class="col-md-2">
+                            <!-- Clear completed button -->
+                            <button class="clear-completed btn btn-sm btn-warning pull-right">Clear completed</button>
+                            <!-- /Clear completed button -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/6.1.2/system.min.js"></script>
     <script>
         System.defaultJSExtensions = true;
-        System.import('./TodoApp').then(function (module) {
+        System.import('./TodoApp.js').then(function (module) {
             new module.TodoApp(document, ['Task 1', 'Another Task', 'Third Task']);
         });
     </script>

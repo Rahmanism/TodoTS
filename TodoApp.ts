@@ -8,6 +8,7 @@ export class TodoApp {
 
     constructor(el, todos: string[]) {
         this.todoService = new TodoService(todos);
+        this.initialize(el);
     }
 
     addTodo(todoName) {
@@ -44,7 +45,7 @@ export class TodoApp {
         });
 
         todoListEl.addEventListener('todo-toggle', function (evt) {
-            let todoId = evt.details.todoId;
+            let todoId = evt.detail.todoId;
             _this.todoService.toggle(todoId);
             _this.renderTodos();
         });
