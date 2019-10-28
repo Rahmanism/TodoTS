@@ -51,8 +51,8 @@
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/6.1.2/system.min.js"></script>
-    <script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/6.1.2/system.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
         System.defaultJSExtensions = true;
         System.import('./TodoApp.js').then(function (module) {
             new module.TodoApp(document, ['Task 1', 'Another Task', 'Third Task']);
