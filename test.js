@@ -1,21 +1,20 @@
-var Test = /** @class */ (function () {
-    function Test() {
+class Test {
+    constructor() {
         this.i = 5;
         // constructor(init?: Partial<Test>){
         //     (<any>Object).assign(this, init);
         // }
     }
-    return Test;
-}());
+}
 // let t66 = new Test ({
 //     i : 66
 // });
-var r = 5;
-var t = new Test();
-var t2 = {
+let r = 5;
+let t = new Test();
+let t2 = {
     i: 6
 };
-var t3 = new Test();
+let t3 = new Test();
 t3.i = 7;
 console.log(t2);
 console.log(typeof r);

@@ -3,11 +3,11 @@
 }
 
 .text-giant {
-    font-size: 200%;
+    font-size: 150%;
 }
 
 .completed-indicator {
-    color: aquamarine;
+    color: forestgreen;
 }
 
 .todo-item .completed {
@@ -20,4 +20,8 @@
 
 .todo-item.completed .incomplete {
     display: none;
+}
+
+.container {
+    margin-top: 2rem;
 }

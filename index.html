@@ -6,18 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>TODO APP - [TypeScript]</title>
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="fontawesome/css/fontawesome.min.css">
     <link rel="stylesheet" href="style/bootstrap.min.css">
     <link rel="stylesheet" href="style/style.css">
 </head>
 
 <body>
+
     <div class="container">
         <div class="header clearfix">
             <h1>TypeScript Todo List</h1>
         </div>
         <div class="row">
-            <div class="panel panel-default clearfix">
-                <div class="panel-body">
+            <div class="card clearfix col-md-12">
+                <div class="card-body">
                     <div class="row">
                         <div class="todo-list col-md-12">
                             <!-- TODO items will be rendered here. -->
@@ -42,7 +45,7 @@
                         
                         <div class="col-md-2">
                             <!-- Clear completed button -->
-                            <button class="clear-completed btn btn-sm btn-warning pull-right">Clear completed</button>
+                            <button class="clear-completed btn btn-warning pull-right">Clear completed</button>
                             <!-- /Clear completed button -->
                         </div>
                     </div>
@@ -51,7 +54,8 @@
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/6.1.2/system.min.js" type="text/javascript"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/6.1.2/system.min.js" type="text/javascript"></script> -->
+    <script src="./system.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         System.defaultJSExtensions = true;
         System.import('./TodoApp.js').then(function (module) {

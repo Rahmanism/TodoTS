@@ -1,4 +1,3 @@
-import { Todo, TodoState } from "./Model.js";
 import TodoService, { ITodoService } from './TodoService.js';
 import TodoListComponent from './TodoListComponent.js';
 
@@ -7,6 +6,7 @@ export class TodoApp {
     private todoList: TodoListComponent;
 
     constructor(el, todos: string[]) {
+        this.todoList = new TodoListComponent(el);
         this.todoService = new TodoService(todos);
         this.initialize(el);
     }
@@ -48,10 +48,14 @@ export class TodoApp {
             let todoId = evt.detail.todoId;
             _this.todoService.toggle(todoId);
             _this.renderTodos();
-        });
+        }, false);
 
         clearCompletedEl.addEventListener('click', function () {
             _this.clearCompleted();
         });
+
+        this.todoList = new TodoListComponent(todoListEl);
+
+        this.renderTodos();
     }
 } 

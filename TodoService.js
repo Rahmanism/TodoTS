@@ -6,7 +6,7 @@ System.register(["./Model.js"], function (exports_1, context_1) {
         return _lastId += 1;
     }
     function clone(src) {
-        var clone = JSON.stringify(src);
+        let clone = JSON.stringify(src);
         return JSON.parse(clone);
     }
     return {
@@ -17,24 +17,24 @@ System.register(["./Model.js"], function (exports_1, context_1) {
         ],
         execute: function () {
             _lastId = 0;
-            TodoService = /** @class */ (function () {
-                function TodoService(todos) {
-                    var _this = this;
+            TodoService = class TodoService {
+                constructor(todos) {
                     this.todos = [];
                     if (todos) {
-                        todos.forEach(function (todo) { return _this.add(todo); });
+                        todos.forEach(todo => this.add(todo));
                     }
                 }
-                TodoService.prototype.add = function (input) {
-                    var todo = {
+                add(input) {
+                    let todo = {
                         id: generateTodoId(),
                         name: null,
                         state: Model_js_1.TodoState.Active
                     };
                     if (typeof input === 'string') {
                         todo.name = input;
+                        // } else if (input instanceof Todo) {
                     }
-                    else if (input instanceof Model_js_1.Todo) {
+                    else if (typeof input.name === "string") {
                         todo.name = input.name;
                     }
                     else {
@@ -42,26 +42,26 @@ System.register(["./Model.js"], function (exports_1, context_1) {
                     }
                     this.todos.push(todo);
                     return todo;
-                };
-                TodoService.prototype.clearCompleted = function () {
-                    this.todos = this.todos.filter(function (x) { return x.state == Model_js_1.TodoState.Active; });
-                };
-                TodoService.prototype.getAll = function () {
+                }
+                clearCompleted() {
+                    this.todos = this.todos.filter(x => x.state == Model_js_1.TodoState.Active);
+                }
+                getAll() {
                     return clone(this.todos);
-                };
-                TodoService.prototype.getById = function (todoId) {
-                    var todo = this._find(todoId);
+                }
+                getById(todoId) {
+                    let todo = this._find(todoId);
                     return clone(todo);
-                };
-                TodoService.prototype._find = function (todoId) {
-                    var filtered = this.todos.filter(function (x) { return x.id == todoId; });
+                }
+                _find(todoId) {
+                    let filtered = this.todos.filter(x => x.id == todoId);
                     if (filtered.length) {
                         return filtered[0];
                     }
                     return null;
-                };
-                TodoService.prototype.toggle = function (todoId) {
-                    var todo = this._find(todoId);
+                }
+                toggle(todoId) {
+                    let todo = this._find(todoId);
                     if (!todo)
                         return;
                     switch (todo.state) {
@@ -74,9 +74,8 @@ System.register(["./Model.js"], function (exports_1, context_1) {
                             break;
                         }
                     }
-                };
-                return TodoService;
-            }());
+                }
+            };
             exports_1("default", TodoService);
         }
     };

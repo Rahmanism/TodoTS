@@ -39,7 +39,8 @@ export default class TodoService implements ITodoService {
 
         if (typeof input === 'string') {
             todo.name = input
-        } else if (input instanceof Todo) {
+        // } else if (input instanceof Todo) {
+        } else if (typeof input.name === "string") {
             todo.name = input.name;
         } else {
             throw 'Invalid Todo name.';

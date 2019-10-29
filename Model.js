@@ -5,11 +5,8 @@ System.register([], function (exports_1, context_1) {
     return {
         setters: [],
         execute: function () {
-            Todo = /** @class */ (function () {
-                function Todo() {
-                }
-                return Todo;
-            }());
+            Todo = class Todo {
+            };
             exports_1("Todo", Todo);
             (function (TodoState) {
                 TodoState[TodoState["Active"] = 1] = "Active";
