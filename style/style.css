@@ -25,3 +25,14 @@
 .container {
     margin-top: 2rem;
 }
+
+.logo {
+    float: left;
+    width: 4rem;
+    margin-top: -.2rem;
+    margin-right: 1rem;
+}
+
+.header {
+    margin: 2rem;
+}
